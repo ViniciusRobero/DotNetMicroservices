@@ -13,12 +13,10 @@ namespace Basket.API.Controllers
     public class BasketController : ControllerBase
     {
         private readonly IBasketRepository _repository;
-        private readonly IPublishEndpoint _publishEndpoint;
-   
-        public BasketController(IBasketRepository repository, IPublishEndpoint publishEndpoint)
+
+        public BasketController(IBasketRepository repository)
         {
             _repository = repository ?? throw new ArgumentNullException(nameof(repository));
-            _publishEndpoint = publishEndpoint ?? throw new ArgumentNullException(nameof(publishEndpoint));
         }
 
         [HttpGet("{userName}", Name = "GetBasket")]
